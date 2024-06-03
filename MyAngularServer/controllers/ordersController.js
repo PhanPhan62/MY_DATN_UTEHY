@@ -3,7 +3,127 @@ const axios = require("axios").default; // npm install axios
 const CryptoJS = require("crypto-js"); // npm install crypto-js
 const moment = require("moment"); // npm install moment
 
+exports.getAllOrderCustomer = (req, res) => {
+  const MaKhachHang = req.params.id;
+  const query = `CALL getAllOrderCustomer (${MaKhachHang})`;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Lỗi:", err);
+      res.status(500).json({ message: "Lỗi", error: err });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+
+exports.getAllOrdersProductDetail = (req, res) => {
+  const id = req.params.id;
+  const query = `CALL getOrderAndDetailByID (${id})`;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Lỗi:", err);
+      res.status(500).json({ message: "Lỗi", error: err });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+exports.getOrderAndDetailByID = (req, res) => {
+  const id = req.params.id;
+  const query = `CALL getOrderAndDetailByID(${id})`;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Lỗi:", err);
+      res.status(500).json({ message: "Lỗi", error: err });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+
 exports.createOrder = (req, res) => {
+  try {
+    // Lấy thông tin từ req.body
+    const {
+      MaKhachHang,
+      customerName,
+      customerAddress,
+      customerPhone,
+      customerEmail
+    } = req.body;
+    const chiTietDonHang = Array.isArray(req.body.chiTietDonHang)
+      ? req.body.chiTietDonHang
+      : [req.body.chiTietDonHang];
+    // Tạo ngày hiện tại
+    const NgayDat = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+    // Thêm dữ liệu vào bảng 'donhang'
+    const TrangThaiDonHang = "Đang chờ duyệt";
+    const orderQuery = `INSERT INTO donhang (MaKhachHang, NgayDat, TrangThaiDonHang) VALUES (?, ?, $${TrangThaiDonHang})`;
+    const orderValues = [MaKhachHang, NgayDat];
+
+    db.query(orderQuery, orderValues, (err, result) => {
+      if (err) {
+        console.error("Lỗi thêm đơn hàng:", err);
+        return res.status(500).json({ error: "Đã có lỗi xảy ra." });
+      }
+      const orderId = result.insertId;
+
+      // Thêm dữ liệu vào bảng 'chitietdonhang' cho từng sản phẩm
+      chiTietDonHang.forEach(item => {
+        const { productId, quantity, Gia } = item;
+        const detailOrderQuery =
+          "INSERT INTO chitietdonhang (MaDonHang, MaSanPham, SoLuong, GiaMua, ThanhTien) VALUES (?, ?, ?, ?, ?)";
+        const detailOrderValues = [
+          orderId,
+          productId,
+          quantity,
+          Gia,
+          quantity * Gia
+        ];
+
+        db.query(detailOrderQuery, detailOrderValues, err => {
+          if (err) {
+            console.error("Lỗi thêm chi tiết đơn hàng:", err);
+          }
+        });
+
+        db.query("CALL CalculateTotalPrice();", (err, results) => {
+          if (err) {
+            console.error("Lỗi tính tổng giá:", err);
+          } else {
+            // console.log("Tổng giá đã được tính:", results[0]);
+            // You can perform any additional processing here if needed
+          }
+        });
+      });
+
+      // After all operations are done, update customer information
+      db.query(
+        "UPDATE khachhang SET TenKhachHang = ?, DiaChi = ?, SDT = ?, Email = ? WHERE id = ?",
+        [
+          customerName,
+          customerAddress,
+          customerPhone,
+          customerEmail,
+          MaKhachHang
+        ],
+        err => {
+          if (err) {
+            console.error("Lỗi cập nhật thông tin khách hàng:", err);
+            return res.status(500).json({ error: "Đã có lỗi xảy ra." });
+          }
+          // Send response once all operations are completed
+          return res.status(200).json({ message: "Tạo đơn hàng thành công" });
+        }
+      );
+    });
+  } catch (error) {
+    console.error("Lỗi:", error);
+    res.status(500).json({ error: "Đã có lỗi xảy ra." });
+  }
+};
+exports.editStatusOrder = (req, res) => {
   try {
     // Lấy thông tin từ req.body
     const {

@@ -43,24 +43,30 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">STT</th>
-                                        <th scope="col">Ảnh</th>
-                                        <th scope="col">Tên Sản phẩm</th>
-                                        <th scope="col">Giá</th>
-                                        <th scope="col">Số lượng</th>
-                                        <th scope="col">Được tạo vào lúc</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Mã Đơn hàng</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><img src="https://via.placeholder.com/50" class="img-fluid"
-                                                alt="Product Image"></td>
-                                        <td>Product Name 1</td>
+                                    <tr *ngFor="let item of users; let i = index">
+                                        <th scope="row">{{i + 1}}</th>
+                                        <!-- <td><img src="https://via.placeholder.com/50" class="img-fluid"
+                                                alt="Product Image"></td> -->
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.NgayDat}}</td>
+                                        <td>{{item.TrangThaiDonHang}}</td>
+                                        <!-- <td>Product Name 1</td>
                                         <td>$10.00</td>
                                         <td>1</td>
-                                        <td>2024-03-29</td>
-                                        <td><button class="btn btn-primary">Action</button></td>
+                                        <td>2024-03-29</td> -->
+                                        <td>
+                                            <!-- <a href="info/orderDetail/{{item.id}}"> -->
+                                            <button (click)="viewDeTail(item.id)"
+                                                class="p-2 border-none btn btn-primary">Xem</button>
+                                            <!-- </a> -->
+                                        </td>
                                     </tr>
                                     <!-- Add more rows as needed -->
                                 </tbody>

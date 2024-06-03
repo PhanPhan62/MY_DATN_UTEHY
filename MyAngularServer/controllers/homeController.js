@@ -1,5 +1,18 @@
 const db = require("../connection");
 
+exports.getAllOrdersProductDetail = (req, res) => {
+  const MaKhachHang = req.params.id;
+  const query = `CALL getAllOrderCustomer (${MaKhachHang})`;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Lỗi:", err);
+      res.status(500).json({ message: "Lỗi", error: err });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+
 exports.getNewProduct = (req, res) => {
   db.query("CALL getAllNewProduct", (err, results) => {
     if (err) {

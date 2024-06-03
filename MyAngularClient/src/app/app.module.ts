@@ -21,6 +21,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { InfoComponent } from './info/info.component';
     CheckoutComponent,
     RegisterComponent,
     InfoComponent,
+    OrderDetailComponent,
     // OrdersComponent,
   ],
   imports: [

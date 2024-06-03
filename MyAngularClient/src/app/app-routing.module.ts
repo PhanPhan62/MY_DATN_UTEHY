@@ -9,6 +9,8 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+
 
 const routes: Routes = [
   {
@@ -47,6 +49,11 @@ const routes: Routes = [
     component: InfoComponent,
   },
   {
+    title: 'Chi tiết đơn hàng',
+    path: 'info/orderDetail/:id',
+    component: OrderDetailComponent,
+  },
+  {
     title: 'Đăng ký',
     path: 'register',
     component: RegisterComponent,
@@ -58,4 +65,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), NgxPaginationModule],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

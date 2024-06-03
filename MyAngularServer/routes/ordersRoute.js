@@ -3,7 +3,11 @@ const router = express.Router();
 const ordersController = require("../controllers/ordersController.js");
 
 router.post("/orders", ordersController.createOrder);
-router.get("/orders", ordersController.getAll);
+router.get("/ordersCustomer/:id", ordersController.getAllOrderCustomer);
+router.get(
+  "/ordersProductDetail/:id",
+  ordersController.getAllOrdersProductDetail
+);
 router.get("/countOrder", ordersController.countOrder);
 router.get("/countTotalIncome", ordersController.countTotalIncome);
 router.get("/countTotalCost", ordersController.countTotalCost);
@@ -81,7 +85,7 @@ router.post("/momo", (req, res, next) => {
     autoCapture: autoCapture,
     extraData: extraData,
     orderGroupId: orderGroupId,
-    signature: signature,
+    signature: signature
   });
   //Create the HTTPS objects
   const https = require("https");
@@ -92,15 +96,15 @@ router.post("/momo", (req, res, next) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Content-Length": Buffer.byteLength(requestBody),
-    },
+      "Content-Length": Buffer.byteLength(requestBody)
+    }
   };
   //Send the request and get the response
-  const request = https.request(options, (res) => {
+  const request = https.request(options, res => {
     console.log(`Status: ${res.statusCode}`);
     console.log(`Headers: ${JSON.stringify(res.headers)}`);
     res.setEncoding("utf8");
-    res.on("data", (body) => {
+    res.on("data", body => {
       console.log("Body: ");
       console.log(body);
       console.log("resultCode: ");
@@ -111,7 +115,7 @@ router.post("/momo", (req, res, next) => {
     });
   });
 
-  request.on("error", (e) => {
+  request.on("error", e => {
     console.log(`problem with request: ${e.message}`);
   });
   // write data to request body

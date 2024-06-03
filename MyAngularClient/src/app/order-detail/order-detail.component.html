@@ -1,0 +1,70 @@
+<!-- Header -->
+<app-header></app-header>
+<div class="container py-5 ">
+    <div class="p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-md">
+        <h4 class="text-xl font-semibold mb-4">Thông tin đặt hàng</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div>
+                <p><strong>Số đơn hàng:</strong> #1000057</p>
+                <p><strong>Thời gian:</strong> 03 Th06 2024 07:44:41</p>
+                <p><strong>Tình trạng đơn hàng:</strong> <span class="text-yellow-500">Chưa xử lý</span></p>
+                <p>
+                    <strong>Phương thức thanh toán:</strong>
+                    <span class="text-blue-500">Thanh toán khi giao hàng (COD)</span>
+                </p>
+                <p>
+                    <strong>Tình trạng thanh toán:</strong> <span class="text-green-500">Chưa hoàn tất</span>
+                </p>
+            </div>
+            <div>
+                <p><strong>Họ và tên:</strong> congphan</p>
+                <p><strong>Điện thoại:</strong> 0365256987</p>
+                <p><strong>Địa chỉ:</strong> Kim Thành, HD, Thanh Hà, VN</p>
+            </div>
+        </div>
+        <h4 class="text-xl font-semibold mb-4">Sản phẩm</h4>
+        <table class="w-full mb-6 border-collapse border border-zinc-300 dark:border-zinc-700">
+            <thead>
+                <tr class="bg-zinc-100 dark:bg-zinc-700">
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">#</th>
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">Hình ảnh</th>
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">Sản phẩm</th>
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">Số tiền</th>
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">Số lượng</th>
+                    <th class="border border-zinc-300 dark:border-zinc-700 p-2">Tổng cộng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2 text-center">1</td>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2 text-center">
+                        <img src="https://placehold.co/50x50" alt="Product Image" class="w-12 h-12 object-cover" />
+                    </td>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2">
+                        <p>NUOC GIAT HUU CO MAS CLEAN 3.8L AN TOAN CHO LAN DA NHAY CAM (SW-193-A0-A1)</p>
+                        <p class="text-sm text-zinc-500 dark:text-zinc-400">Cung cấp: NPP HAI DUONG</p>
+                    </td>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2 text-right">150,000đ</td>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2 text-center">3</td>
+                    <td class="border border-zinc-300 dark:border-zinc-700 p-2 text-right">450,000đ</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mb-6">
+            <p><strong>Phí vận chuyển:</strong> 0đ</p>
+            <p><strong>Tổng cộng:</strong> 450,000đ</p>
+        </div>
+        <p class="mb-6">
+            <strong>Tình trạng giao hàng:</strong> <span class="text-yellow-500">Chưa xử lý</span>
+        </p>
+
+        <div class="flex space-x-4">
+            <button class="bg-danger text-white p-3 my-4 rounded-lg">Hủy đơn hàng</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+<app-footer></app-footer>

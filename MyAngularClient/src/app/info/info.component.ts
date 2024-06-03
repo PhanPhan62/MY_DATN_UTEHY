@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -8,10 +9,12 @@ import { Component } from '@angular/core';
 })
 export class InfoComponent {
   user: any;
-  users:any[]=[]
+  users: any[] = [];
+  viewDetail: any[] = [];
+  MaKhachHang: any;
   constructor(
-    private http: HttpClient
-  ) {this.loadUserData();}
+    private http: HttpClient, private router: Router
+  ) { this.loadUserData(); this.fetchUsersData() }
 
   loadUserData() {
     // console.log(this.cart);
@@ -26,16 +29,37 @@ export class InfoComponent {
       this.user = userData;
 
       // Bây giờ bạn có thể sử dụng biến user để truy cập và thao tác với giỏ hàng
-      console.log(this.user);
-    }else {
+      this.MaKhachHang = this.user.MaKhachHang;
+      // console.log(this.MaKhachHang);
+    } else {
       console.log("không tìm thấy thông tin");
-      
+
     }
   }
   public url = 'http://localhost:3000';
-  fetchUsersData(){
-    this.http.get(this.url + '/getAllBestSeller').subscribe((data: any) => {
+  fetchUsersData() {
+    this.http.get(this.url + `/ordersCustomer/${this.MaKhachHang}`).subscribe((data: any) => {
       this.users = data;
+      console.log(this.MaKhachHang);
+
     });
   }
+  viewDeTail(id: any) {
+    // Kiểm tra xem có dữ liệu viewDetail trong localStorage không
+    const existingViewDetail = localStorage.getItem('viewDetail');
+    if (existingViewDetail) {
+      // Nếu có, xoá dữ liệu cũ
+      localStorage.removeItem('viewDetail');
+    }
+
+    // Lấy dữ liệu mới từ API
+    this.http.get(this.url + `/orderDetail/${id}`).subscribe((data: any) => {
+      this.viewDetail = data;
+      // Lưu dữ liệu mới vào localStorage
+      localStorage.setItem('viewDetail', JSON.stringify(this.viewDetail));
+      // Chuyển hướng đến trang khác
+      this.router.navigate([`/info/orderDetail/${id}`]);
+    });
+  }
+
 }
