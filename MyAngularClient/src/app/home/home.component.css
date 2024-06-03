@@ -1,0 +1,13 @@
+.overlay i:hover {
+    cursor: pointer;
+}
+
+.overlay:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+    .header.shop .logo {
+        max-height: 10px !important;
+    }
+}

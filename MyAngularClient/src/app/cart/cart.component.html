@@ -1,0 +1,125 @@
+<app-header>
+
+</app-header>
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Trang Chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Giỏ hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Shopping Cart -->
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Shopping Summery -->
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th>Sản Phẩm</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">số lượng</th>
+                            <th class="text-center">Tổng </th>
+                            <th class="text-center">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cartItems">
+                            <td class="image" data-title="No"><img src="http://localhost:3000/uploads/{{item.Anh}}"
+                                    alt="#"></td>
+                            <td class="product-des" data-title="Description">
+                                <p class="product-name"><a href="#">{{item.TenSanPham}}</a></p>
+                                <p class="product-des">{{item.MoTaSanPham}}</p>
+                            </td>
+                            <td class="price" data-title="Price"><span>{{ item.Gia | currency: 'VND':'symbol':'1.0-2'
+                                    }}</span></td>
+                            <td class="qty" data-title="Qty">
+                                <!-- Input Order -->
+                                <div class="input-group">
+                                    <div class="button minus">
+                                        <button type="button" class="btn btn-primary btn-number"
+                                            (click)="minusQuantity(item.productId, item.quantity)">
+                                            <i class="ti-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="number" name="quantity" class="input-number"
+                                    value="item.quantity"
+                                        [(ngModel)]="item.quantity" min="1" max="100">
+                                    <!-- <input type="number" class="input-number" > -->
+                                    <div class="button plus">
+                                        <button type="button" class="btn btn-primary btn-number"
+                                            (click)="plusQuantity(item.productId, item.quantity)">
+                                            <i class="ti-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--/ End Input Order -->
+                            </td>
+
+                            <td class="total-amount" data-title="Total"><span>{{item.quantity*item.Gia| currency: 'VND':'symbol':'1.0-2'}}</span></td>
+                            <td class="action" data-title="Remove"><a style="cursor: pointer;"
+                                    (click)="deleteCartFull(item.productId)"><i class="ti-trash remove-icon"></i></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!--/ End Shopping Summery -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Total Amount -->
+                <div class="total-amount">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-5 col-12">
+                            <div class="left">
+                                <!-- <div class="coupon">
+                                    <form action="#" target="_blank">
+                                        <input name="Coupon" placeholder="Enter Your Coupon">
+                                        <button class="btn">Apply</button>
+                                    </form>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">
+                                        Shipping (+10$)</label>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-7 col-12">
+                            <div class="right">
+                                <ul>
+                                    <li>Tổng Giỏ hàng<span>{{total| currency: 'VND':'symbol':'1.0-2'}}</span></li>
+                                    <li>Vận chuyển<span>Free</span></li>
+                                    <!-- <li>You Save<span>$20.00</span></li>
+                                    <li class="last">You Pay<span>$310.00</span></li> -->
+                                </ul>
+                                <div class="button5">
+                                    <a href="/checkout" class="btn btnCheckout">Thanh toán</a>
+                                    <a href="/" class="btn back">Tiếp tục mua sắm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Total Amount -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ End Shopping Cart -->
+
+<app-newsletter></app-newsletter>
+<!-- End Shop Newsletter -->
+<app-footer></app-footer>

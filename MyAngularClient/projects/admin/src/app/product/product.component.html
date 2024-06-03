@@ -1,0 +1,301 @@
+<section class="section">
+    <div class="container-fluid">
+        <!-- ========== title-wrapper start ========== -->
+        <div class="title-wrapper pt-20" style="z-index: 9999;">
+
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <!-- <div  class="alert-box success-alert  alert-custom">
+                        <div class="alert">
+                            <p class="text-medium">
+                                Sản phẩm đã được thêm thành công.
+                            </p>
+                        </div>
+                    </div> -->
+
+                    <div *ngIf="successMessageVisible" class="toast align-items-center" role="alert"
+                        aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Sản phẩm đã được thêm thành công.
+                            </div>
+                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="">Quản Lý</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{title}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-style mb-30">
+                    <div class="
+                            title
+                            d-flex
+                            flex-wrap
+                            align-items-center
+                            justify-content-between
+                        ">
+                        <div class="left">
+                            <h6 class="text-medium mb-30">Thông tin {{title}}</h6>
+                        </div>
+                        <div class="right">
+                            <div class="select-style-1" style="color: #fff;">
+                                <button (click)="Create()" type="button"
+                                    class="btn-add main-btn light-btn-outline rounded-md btn-hover" data-toggle="modal"
+                                    data-target="#addModal">
+                                    <i class="btn-add lni lni-circle-plus trans"></i>Thêm mới</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <p-table [value]="sanPhams" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                            [tableStyle]="{ 'min-width': '60rem','max-width': '65rem' }"
+                            currentPageReportTemplate="Hiển thị {first} đến {last} của {totalRecords} sản phẩm">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <!-- <th>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th> -->
+                                    <th pSortableColumn="id">
+                                        <div class="flex align-items-center">
+                                            ID
+                                            <p-sortIcon field="id"></p-sortIcon>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="TenSanPham">
+                                        <div class="flex align-items-center">
+                                            Sản phẩm
+                                            <p-sortIcon field="TenSanPham"></p-sortIcon>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="TenLoai">
+                                        <div class="flex align-items-center">
+                                            Tên Loại
+                                            <p-sortIcon field="TenLoai"></p-sortIcon>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="Gia">
+                                        <div class="flex align-items-center">
+                                            Giá
+                                            <p-sortIcon field="Gia"></p-sortIcon>
+                                        </div>
+
+                                    </th>
+                                    <th pSortableColumn="DonGiaNhap">
+
+                                        <div class="flex align-items-center">
+                                            Giá Nhập
+                                            <p-sortIcon field="DonGiaNhap"></p-sortIcon>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="TenNSX">
+                                        <div class="flex align-items-center">
+                                            Nhà cung cấp
+                                            <p-sortIcon field="TenNSX"></p-sortIcon>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-item>
+                                <tr>
+                                    <!-- <td>
+                                        <p-tableCheckbox [value]="item"></p-tableCheckbox>
+                                    </td> -->
+                                    <td>
+                                        <p class="text-sm">{{ item.id }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="product">
+                                            <div class="image">
+                                                <img style="width: 100px; height: 100px; object-fit: cover; object-position: center;"
+                                                    src="http://localhost:3000/uploads/{{ item.Anh }}"
+                                                    alt="{{ item.TenSanPham }}" />
+                                            </div>
+                                            <p class="text-sm" title="{{item.TenSanPham}}">{{ item.TenSanPham }}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm"><span class="badge bg-success">{{ item.TenLoai }}</span></p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm">{{ item.Gia | currency: 'VND':'symbol':'1.0-2' }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm">{{ item.DonGiaNhap | currency: 'VND':'symbol':'1.0-2' }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm">{{ item.TenNSX }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="action justify-content-end">
+                                            <button class="more-btn ml-10 dropdown-toggle" id="moreAction1"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="lni lni-more-alt"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+                                                <li class="dropdown-item">
+                                                    <div data-toggle="modal" data-target="#addModal"
+                                                        (click)="Edit(item)" class="text-gray cssDelete"><i
+                                                            class="lni lni-pencil trans"></i>Sửa</div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="text-gray cssDelete"
+                                                        (click)="deleteProduct(item.id, item.TenSanPham)">
+                                                        <i class="lni lni-trash-can trans color-del"></i>Xóa
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 order-last order-md-first">
+                <div class="copyright text-center text-md-start">
+                    <p class="text-sm">
+                        Xây dựng website bán quần áo Beauty by
+                        <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                            Phan Thành Công - 12520092
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- end col-->
+            <div class="col-md-6">
+                <div class="
+                  terms
+                  d-flex
+                  justify-content-center justify-content-md-end
+                ">
+                    <!-- <a href="#0" class="text-sm">Term & Conditions</a>
+                    <a href="#0" class="text-sm ml-15">Privacy & Policy</a> -->
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</footer>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div style="border-radius: 15px; width: 200%; border-radius: 15px; margin: auto; transform: translateX(-200px);"
+            class="modal-content w-12">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">{{info+' thông tin '+ title}}</h5>
+                <button type="button" (click)="reIsEditing()" class="close" data-dismiss="modal" aria-label="Đóng">
+                    <i class="lni lni-close close-btn close-btn-hover"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="submitSanPham()" #sanphamForm="ngForm">
+                    <div style="display: flex;">
+                        <div class="input-style-3" style=" width: 75%;">
+                            <label for="nameProduct" class="icon"><i class="lni lni-dropbox"
+                                    style="transform: translate(5px, 5px);"></i></label>
+                            <input style="border-radius: 10px;" type="text" id="TenSanPham" name="TenSanPham"
+                                [(ngModel)]="sanpham.TenSanPham" required placeholder="Tên Sản Phẩm" />
+                        </div>
+                        <div class="input-style-3" style=" width: 25%; margin-left: 5px">
+                            <label for="price" class="icon"><i class="lni lni-tag"
+                                    style="transform: translate(5px, 5px);"></i></label>
+                            <input style="border-radius: 10px;" required [(ngModel)]="sanpham.DonGiaNhap" type="number"
+                                id="price" name="DonGiaNhap" placeholder="Giá sản phẩm" />
+                        </div>
+                    </div>
+
+                    <div class="input-style-3">
+                        <textarea style="border-radius: 10px;" [(ngModel)]="sanpham.MoTaSanPham" id="description"
+                            name="MoTaSanPham" placeholder="Viết mô tả cho sản phẩm. . ." rows="5"></textarea>
+                        <label for="description"><span class="icon"><i class="lni lni-ticket-alt"></i></span></label>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="select-style-1" style=" width: 25%; border-radius: 10px;">
+                            <div class="input-style-1">
+                                <label for="number" class="icon">Số lượng<i class="lni lni-tag"
+                                        style="transform: translate(5px, 5px);"></i></label>
+
+                                <input style=" border-radius: 10px;" required [(ngModel)]="sanpham.SoLuong"
+                                    type="number" id="number" name="SoLuong" placeholder="Số lượng" />
+                            </div>
+                        </div>
+                        <div class="select-style-1" style=" width: 25%; margin-left: 5px">
+                            <label for="categoryID">Loại Sản Phẩm</label>
+                            <div class="select-position">
+                                <select id="categoryID" name="MaLoai" [(ngModel)]="sanpham.MaLoai">
+                                    <option value="0">Loại Sản Phẩm</option>
+                                    <option *ngFor="let item of loaiSanPhams" [value]="item.id">{{item.TenLoai}}
+                                    </option>
+                                </select>
+
+                                <!-- <select id="categoryID" name="MaLoai" [(ngModel)]="sanpham.MaLoai">
+                                    <option value="0">Loại Sản Phẩm</option>
+                                    <option *ngFor="let item of loaiSanPhams" [value]="item.id" [selected]="sanpham.MaLoai === item.id">{{ item.TenLoai }}</option>
+                                </select> -->
+
+                            </div>
+                        </div>
+                        <div class="select-style-1" style=" width: 25%; margin-left: 5px">
+                            <label for="unitID">Đơn vị</label>
+                            <div class="select-position">
+                                <select id="unitID" name="MaDonViTinh" [(ngModel)]="sanpham.MaDonViTinh">
+                                    <option selected value="0">Đơn vị</option>
+                                    <option *ngFor="let sanpham of donViTinhs" [value]="sanpham.id">
+                                        {{sanpham.TenDonViTinh}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-style-1" style=" width: 25%; margin-left: 5px">
+                            <label for="makerID">Nhà Sản xuất</label>
+                            <div class="select-position">
+                                <select id="makerID" name="MaNSX" [(ngModel)]="sanpham.MaNSX">
+                                    <option value="0">Nhà Sản xuất</option>
+                                    <option *ngFor="let item of nhaSanXuats" [value]="item.id">{{item.TenNSX}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-style-3">
+                        <label for="upload" class="icon"><i class="lni lni-upload"
+                                style="transform: translate(5px, 5px);"></i></label>
+                        <input type="file" size="100%" id="upload" (change)="onFileSelected($event)" name="anh"
+                            multiple />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-in-form main-btn danger-btn-outline rounded-md btn-hover"
+                            data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn-in-form main-btn primary-btn rounded-md btn-hover"
+                            *ngIf="!isEditing" [disabled]="!sanphamForm.form.valid" id="luuSanPham">Xác nhận</button>
+                        <button type="submit" class="btn-in-form main-btn primary-btn rounded-md btn-hover"
+                            *ngIf="isEditing" [disabled]="!sanphamForm.form.valid" id="suaSanPham">Sửa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

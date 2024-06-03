@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+            <h2 class="textRegister">{{textRegister}}</h2>
+            <div  class="login">
+                <form class="login__field">
+                    <!-- <i class="fa-chevron-right"></i> -->
+                    <input autofocus [(ngModel)]="TaiKhoan" name="TaiKhoan" type="text" class="login__input"
+                        placeholder="Tài khoản">
+                </form>
+                <div class="login__field">
+                    <!-- <i class=" fas fa-lock"></i> -->
+                    <input [(ngModel)]="MatKhau" name="MatKhau" type="password" class="login__input"
+                        placeholder="Mật khẩu">
+                </div>
+                <div class="login__field">
+                    <!-- <i class=" fas fa-lock"></i> -->
+                    <input [(ngModel)]="existsPassword" name="existsPassword" type="password" class="login__input"
+                        placeholder="Xác nhận Mật khẩu">
+                </div>
+                <button (click)="submitRegister()" type="submit" class="button login__submit">
+                    <span class="button__text">{{textRegister}}</span>
+                    <!-- <i class="button__icon fas fa-chevron-right"></i> -->
+                </button>
+            </div>
+            <span class="toSignup">
+                <b>
+                    <span class="question">
+                        <span>Bạn đã </span>
+                        <span class="beauty">có tài khoản? </span>
+                    </span>
+                </b>
+                <a href="login">Đăng nhập</a>
+            </span>
+            <div class="social-login">
+                <!-- <h6>log in via</h6>
+                <div class="social-icons">
+                    <a href="#" class="social-login__icon fab fa-instagram"></a>
+                    <a href="#" class="social-login__icon fab fa-facebook"></a>
+                    <a href="#" class="social-login__icon fab fa-twitter"></a>
+                </div> -->
+            </div>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<!-- Header -->
+<app-header></app-header>
+<!--/ End Header -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- User Info Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Hồ sơ</h3>
+                </div>
+                <div class="card-body text-center">
+                    <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid mb-3" alt="User Image">
+                    <h4>{{ user.TenKhachHang }}</h4>
+                    <p><strong>Email:</strong> {{ user.Email }}</p>
+                    <p><strong>SĐT:</strong>{{user.SDT}}</p>
+                    <p><strong>Địa chỉ:</strong> {{user.DiaChi}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="user-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
+                                aria-controls="orders" aria-selected="true">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab"
+                                aria-controls="password" aria-selected="false">Change Password</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="user-tabs-content">
+                        <!-- Orders Tab -->
+                        <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                            <h5>Orders</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Ảnh</th>
+                                        <th scope="col">Tên Sản phẩm</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><img src="https://via.placeholder.com/50" class="img-fluid"
+                                                alt="Product Image"></td>
+                                        <td>Product Name 1</td>
+                                        <td>$10.00</td>
+                                        <td>1</td>
+                                        <td><button class="btn btn-primary">Action</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td><img src="https://via.placeholder.com/50" class="img-fluid"
+                                                alt="Product Image"></td>
+                                        <td>Product Name 2</td>
+                                        <td>$15.00</td>
+                                        <td>2</td>
+                                        <td><button class="btn btn-primary">Action</button></td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Change Password Tab -->
+                        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                            <h5>Change Password</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label for="current-password">Current Password</label>
+                                    <input type="password" class="form-control" id="current-password"
+                                        placeholder="Enter current password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" class="form-control" id="new-password"
+                                        placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirm-password"
+                                        placeholder="Confirm new password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

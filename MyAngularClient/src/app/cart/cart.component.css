@@ -1,0 +1,17 @@
+.input-number{
+    border: none; outline: none;
+}
+
+/* .btnCheckout{
+    color: rgb(0, 0, 0) !important;
+    background-color: #f7941d;
+}
+.btnCheckout:hover{
+    color: rgb(0, 0, 0) !important;
+    background-color: black;
+} */
+
+.back{
+  background-color: #f6f6f6!important;
+  color: black !important;
+}
