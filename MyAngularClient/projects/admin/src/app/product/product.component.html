@@ -1,4 +1,14 @@
 <section class="section">
+    <div class=" p-3 align-items-center text-white bg-success border-0" [ngClass]="(successMessageVisible) ? '':'toast'"
+        style=" z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Sản phẩm đã được thêm thành công.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
     <div class="container-fluid">
         <!-- ========== title-wrapper start ========== -->
         <div class="title-wrapper pt-20" style="z-index: 9999;">
@@ -13,16 +23,7 @@
                         </div>
                     </div> -->
 
-                    <div *ngIf="successMessageVisible" class="toast align-items-center" role="alert"
-                        aria-live="assertive" aria-atomic="true">
-                        <div class="d-flex">
-                            <div class="toast-body">
-                                Sản phẩm đã được thêm thành công.
-                            </div>
-                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
-                                aria-label="Close"></button>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- end col -->
                 <div class="col-md-6">

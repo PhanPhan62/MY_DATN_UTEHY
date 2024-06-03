@@ -44,7 +44,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Single Banner  -->
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="single-banner">
                     <img loading="lazy" style="height:300px;" src="http://localhost:3000/uploads/event/banner1.png"
                         alt="#">
@@ -57,7 +57,7 @@
             </div>
             <!-- /End Single Banner  -->
             <!-- Single Banner  -->
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="single-banner">
                     <img loading="lazy" style="height:300px;" src="http://localhost:3000/uploads/event/banner2.png"
                         alt="#">
@@ -120,7 +120,7 @@
                         <div class="tab-pane fade show active" id="newProduct" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div *ngFor="let item of newProduct" class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div *ngFor="let item of newProduct" class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a (click)="redirectToProductDetail(item.id)">
@@ -166,8 +166,7 @@
                         <div class="tab-pane fade" id="bestSeller" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div *ngFor="let item of getAllBestSeller"
-                                        class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div *ngFor="let item of getAllBestSeller" class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a (click)="redirectToProductDetail(item.id)">
@@ -214,7 +213,7 @@
                         <div class="tab-pane fade" id="sell" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div *ngFor="let item of getAllSell" class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div *ngFor="let item of getAllSell" class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a (click)="redirectToProductDetail(item.id)">
@@ -266,7 +265,7 @@
                         <div class="tab-pane fade" id="accessories" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -299,7 +298,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -332,7 +331,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -365,7 +364,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -399,7 +398,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -432,7 +431,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -466,7 +465,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -499,7 +498,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -542,7 +541,7 @@
                         <div class="tab-pane fade" id="essential" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -575,7 +574,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -608,7 +607,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -641,7 +640,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -675,7 +674,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -708,7 +707,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -742,7 +741,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -775,7 +774,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -818,7 +817,7 @@
                         <div class="tab-pane fade" id="prices" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -851,7 +850,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -884,7 +883,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -917,7 +916,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -951,7 +950,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -984,7 +983,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -1018,7 +1017,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -1051,7 +1050,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                    <div class="col-6 col-xl-3 col-lg-4 col-md-4">
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="product-details.html">
@@ -1103,7 +1102,7 @@
     <div class="container">
         <div class="row">
             <!-- Single Banner  -->
-            <div class="col-lg-6 col-md-6 col-12">
+            <div class="col-lg-6 col-md-6 col-6">
                 <div class="single-banner">
                     <img loading="lazy" src="http://localhost:3000/uploads/event/banner4.png" alt="#">
                     <div class="content">
@@ -1115,7 +1114,7 @@
             </div>
             <!-- /End Single Banner  -->
             <!-- Single Banner  -->
-            <div class="col-lg-6 col-md-6 col-12">
+            <div class="col-lg-6 col-md-6 col-6">
                 <div class="single-banner">
                     <img loading="lazy" src="http://localhost:3000/uploads/event/banner5.png" alt="#">
                     <div class="content">
@@ -1141,7 +1140,7 @@
 <section class="shop-home-list section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
@@ -1152,7 +1151,7 @@
                 <!-- Start Single List  -->
                 <div *ngFor="let item of getAllSell3" class="single-list">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-6">
                             <div class="list-image overlay">
                                 <img loading="lazy" src="http://localhost:3000/uploads/{{item.Anh}}"
                                     alt="{{item.TenSanPham}}">
@@ -1160,7 +1159,7 @@
                                         class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
+                        <div class="col-lg-6 col-md-6 col-6 no-padding">
                             <div class="content">
                                 <h4 class="title"><a style="cursor: pointer;"
                                         (click)="redirectToProductDetail(item.id)">{{item.TenSanPham}}</a></h4>
@@ -1171,7 +1170,7 @@
                 </div>
                 <!-- End Single List  -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
@@ -1182,7 +1181,7 @@
                 <!-- Start Single List  -->
                 <div *ngFor="let item of getAllBestSeller3" class="single-list">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-6">
                             <div class="list-image overlay">
                                 <img loading="lazy" src="http://localhost:3000/uploads/{{item.Anh}}"
                                     alt="{{item.TenSanPham}}">
@@ -1190,7 +1189,7 @@
                                         class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
+                        <div class="col-lg-6 col-md-6 col-6 no-padding">
                             <div class="content">
                                 <h5 class="title"><a style="cursor: pointer;"
                                         (click)="redirectToProductDetail(item.id)">{{item.TenSanPham}}</a></h5>
@@ -1201,7 +1200,7 @@
                 </div>
                 <!-- End Single List  -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
@@ -1212,7 +1211,7 @@
                 <!-- Start Single List  -->
                 <div *ngFor="let item of newProduct3" class="single-list">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-6">
                             <div class="list-image overlay">
                                 <img loading="lazy" src="http://localhost:3000/uploads/{{item.Anh}}"
                                     alt="{{item.TenSanPham}}">
@@ -1220,7 +1219,7 @@
                                         class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 no-padding">
+                        <div class="col-lg-6 col-md-6 col-6 no-padding">
                             <div class="content">
                                 <h5 class="title"><a style="cursor: pointer;" href="#">{{item.TenSanPham}}</a></h5>
                                 <p class="price with-discount">{{ item.Gia | currency: 'VND':'symbol':'1.0-2' }}</p>

@@ -137,10 +137,10 @@ export class ProductComponent implements OnInit {
           this.sanpham.DonGiaNhap = 0;
           this.sanpham.SoLuong = 1;
           this.selectedFiles = [];
-          setTimeout(() => {
-            this.successMessageVisible = false;
-            this.fetchSanPhams();
-          }, 4000);
+          // setTimeout(() => {
+          //   this.successMessageVisible = false;
+          //   this.fetchSanPhams();
+          // }, 4000);
         });
     } else {
       const info = 'Sửa thông tin';

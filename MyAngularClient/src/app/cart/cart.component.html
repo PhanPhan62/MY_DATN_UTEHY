@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="bread-inner">
                     <ul class="bread-list">
-                        <li><a href="index1.html">Trang Chủ<i class="ti-arrow-right"></i></a></li>
+                        <li><a href="/">Trang Chủ<i class="ti-arrow-right"></i></a></li>
                         <li class="active"><a href="blog-single.html">Giỏ hàng</a></li>
                     </ul>
                 </div>
@@ -53,8 +53,7 @@
                                             <i class="ti-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="number" name="quantity" class="input-number"
-                                    value="item.quantity"
+                                    <input type="number" name="quantity" class="input-number" value="item.quantity"
                                         [(ngModel)]="item.quantity" min="1" max="100">
                                     <!-- <input type="number" class="input-number" > -->
                                     <div class="button plus">
@@ -67,7 +66,8 @@
                                 <!--/ End Input Order -->
                             </td>
 
-                            <td class="total-amount" data-title="Total"><span>{{item.quantity*item.Gia| currency: 'VND':'symbol':'1.0-2'}}</span></td>
+                            <td class="total-amount" data-title="Total"><span>{{item.quantity*item.Gia| currency:
+                                    'VND':'symbol':'1.0-2'}}</span></td>
                             <td class="action" data-title="Remove"><a style="cursor: pointer;"
                                     (click)="deleteCartFull(item.productId)"><i class="ti-trash remove-icon"></i></a>
                             </td>
