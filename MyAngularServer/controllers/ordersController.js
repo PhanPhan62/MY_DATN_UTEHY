@@ -59,7 +59,7 @@ exports.createOrder = (req, res) => {
 
     // Thêm dữ liệu vào bảng 'donhang'
     const TrangThaiDonHang = "Đang chờ duyệt";
-    const orderQuery = `INSERT INTO donhang (MaKhachHang, NgayDat, TrangThaiDonHang) VALUES (?, ?, $${TrangThaiDonHang})`;
+    const orderQuery = `INSERT INTO donhang (MaKhachHang, NgayDat, TrangThaiDonHang) VALUES (?, ?, ${TrangThaiDonHang})`;
     const orderValues = [MaKhachHang, NgayDat];
 
     db.query(orderQuery, orderValues, (err, result) => {
@@ -208,7 +208,7 @@ exports.editStatusOrder = (req, res) => {
 
 exports.countOrder = (req, res) => {
   db.query(
-    "SELECT * FROM donhang WHERE NgayDat >= CURDATE() - INTERVAL 30 DAY and TrangThaiDonHang = 1; ",
+    "SELECT * FROM donhang WHERE NgayDat >= CURDATE() - INTERVAL 30 DAY and TrangThaiDonHang = 'Đã nhận hàng'; ",
     (err, results) => {
       if (err) {
         res.status(500).json({ message: "Lỗi", error: err });
@@ -220,7 +220,7 @@ exports.countOrder = (req, res) => {
 };
 exports.countTotalIncome = (req, res) => {
   db.query(
-    "SELECT ctdh.SoLuong, ctdh.GiaMua FROM chitietdonhang ctdh INNER JOIN donhang dh on ctdh.MaDonHang = dh.id WHERE dh.TrangThaiDonHang = 1 ",
+    "SELECT ctdh.SoLuong, ctdh.GiaMua FROM chitietdonhang ctdh INNER JOIN donhang dh on ctdh.MaDonHang = dh.id WHERE dh.TrangThaiDonHang = 'Đã nhận hàng' ",
     (err, results) => {
       if (err) {
         res.status(500).json({ message: "Lỗi", error: err });

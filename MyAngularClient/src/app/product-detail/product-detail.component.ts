@@ -30,10 +30,11 @@ export class ProductDetailComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private homeComponent: HomeComponent
-  ) {}
+  ) { }
   public url = 'http://localhost:3000';
   public getByIdProduct: any[] = [];
   listImg: any[] = [];
+
   ngOnInit() {
     this.detailProduct();
   }
@@ -41,7 +42,7 @@ export class ProductDetailComponent implements OnInit {
   detailProduct() {
     this.route.paramMap.subscribe((params) => {
       const productId = params.get('id');
-      
+
 
       this.http
         .get(`${this.url}/getByIdProduct/${productId}`)

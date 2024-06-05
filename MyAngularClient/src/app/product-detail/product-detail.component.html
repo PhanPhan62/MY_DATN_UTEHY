@@ -27,10 +27,10 @@
 </div>
 
 
-<div class="modal-body" *ngIf="this.getByIdProduct[0]">
+<div class="container modal-body " *ngIf="this.getByIdProduct[0]">
     <!-- <div class="modal-body"> -->
-    <div class="row no-gutters">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="row no-gutters ">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- Product Slider -->
             <div class="product-gallery">
                 <div *ngIf="listImg">
@@ -61,7 +61,7 @@
             </div>
             <!-- End Product slider -->
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <div class="quickview-content">
                 <h2>{{this.getByIdProduct[0].TenSanPham}}</h2>
                 <div class="quickview-ratting-review">
@@ -145,7 +145,7 @@
 <!-- <app-newsletter></app-newsletter> -->
 
 <!-- Start Shop Blog  -->
-<!-- <section class="shop-blog section">
+<section class="shop-blog section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -166,7 +166,8 @@
                 </div>
             </div>
         </div>
+
     </div>
-</section> -->
+</section>
 <!-- End Shop Blog  -->
 <app-footer></app-footer>
